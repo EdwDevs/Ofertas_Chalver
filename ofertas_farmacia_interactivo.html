@@ -1,886 +1,315 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔥 OFERTAS ESPECIALES - Farmacia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Productos en Oferta - Laboratorios Chalver</title>
     <style>
-        :root {
-            --primary-red: #e74c3c;
-            --primary-green: #27ae60;
-            --primary-orange: #f39c12;
-            --primary-blue: #3498db;
-            --dark-gray: #2c3e50;
-            --light-gray: #ecf0f1;
-            --white: #ffffff;
-            --shadow: 0 4px 15px rgba(0,0,0,0.1);
-            --shadow-hover: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
             min-height: 100vh;
-            padding: 10px;
         }
-
+        
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            background: var(--white);
-            border-radius: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
-            box-shadow: var(--shadow-hover);
         }
-
-        /* Header Promocional */
+        
         .header {
-            background: linear-gradient(135deg, var(--primary-red), #c0392b);
-            color: var(--white);
-            padding: 30px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 15s linear infinite;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-
+        
         .header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-size: 2.5em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: pulse 2s infinite;
         }
-
+        
         .header p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-            font-weight: 500;
+            font-size: 1.2em;
+            opacity: 0.9;
         }
-
-        /* Stats Compactas */
-        .stats-bar {
-            background: var(--dark-gray);
-            color: var(--white);
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .stat-item {
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            color: var(--primary-orange);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Tabla Promocional */
+        
         .table-container {
             padding: 20px;
             overflow-x: auto;
         }
-
-        .promo-table {
+        
+        table {
             width: 100%;
             border-collapse: collapse;
-            background: var(--white);
-            border-radius: 15px;
+            background: white;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
-
-        .promo-table thead {
-            background: linear-gradient(135deg, var(--dark-gray), #34495e);
-            color: var(--white);
+        
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
         }
-
-        .promo-table th {
-            padding: 18px 12px;
+        
+        th {
+            padding: 15px 12px;
             text-align: left;
             font-weight: 600;
-            font-size: 0.95rem;
-            text-transform: uppercase;
+            font-size: 0.95em;
             letter-spacing: 0.5px;
         }
-
-        .promo-table tbody tr {
-            transition: all 0.3s ease;
-            border-bottom: 1px solid #ecf0f1;
-        }
-
-        .promo-table tbody tr:hover {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            transform: scale(1.01);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .promo-table td {
-            padding: 15px 12px;
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #f0f0f0;
             vertical-align: middle;
-            font-size: 0.9rem;
         }
-
-        /* Columna Producto */
-        .product-name {
+        
+        tbody tr:hover {
+            background-color: #f8f9ff;
+            transform: scale(1.01);
+            transition: all 0.3s ease;
+        }
+        
+        .producto {
             font-weight: 600;
-            color: var(--dark-gray);
-            max-width: 250px;
-            line-height: 1.3;
+            color: #333;
+            font-size: 0.9em;
         }
-
-        /* Columna Precios */
-        .price-cell {
-            text-align: center;
-        }
-
-        .price-before {
-            display: block;
+        
+        .precio-original {
             text-decoration: line-through;
-            color: #7f8c8d;
-            font-size: 0.85rem;
-            margin-bottom: 3px;
+            color: #999;
+            font-size: 0.9em;
         }
-
-        .price-now {
-            display: block;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary-green);
+        
+        .precio-final {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.1em;
         }
-
-        /* Columna Descuento */
-        .discount-badge {
-            display: inline-block;
-            padding: 8px 15px;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--white);
-            text-align: center;
-            min-width: 70px;
-        }
-
-        .discount-high { background: linear-gradient(135deg, var(--primary-red), #c0392b); }
-        .discount-medium { background: linear-gradient(135deg, var(--primary-orange), #e67e22); }
-        .discount-low { background: linear-gradient(135deg, var(--primary-blue), #2980b9); }
-
-        /* Columna Ahorro */
-        .savings-cell {
-            text-align: center;
-            font-weight: 700;
-            color: var(--primary-green);
-            font-size: 1.1rem;
-        }
-
-        .savings-highlight {
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            color: var(--white);
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-        }
-
-        /* Columna Stock */
-        .stock-cell {
-            text-align: center;
-        }
-
-        .stock-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
+        
+        .ahorro {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
             padding: 6px 12px;
             border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.85rem;
+            font-weight: bold;
+            font-size: 0.85em;
+            text-align: center;
         }
-
-        .stock-alto {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+        
+        .descuento {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.8em;
         }
-
-        .stock-medio {
-            background: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeaa7;
+        
+        .disponible {
+            background: #27ae60;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8em;
+            text-align: center;
         }
-
+        
+        .agotado {
+            background: #e74c3c;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8em;
+            text-align: center;
+        }
+        
         .stock-bajo {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            animation: pulse-warning 2s infinite;
-        }
-
-        .stock-agotado {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            opacity: 0.7;
-        }
-
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, var(--dark-gray), #34495e);
-            color: var(--white);
-            padding: 30px 20px;
+            background: #f39c12;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8em;
             text-align: center;
         }
-
-        .footer h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            font-weight: 700;
+        
+        .presentacion {
+            background: #ecf0f1;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+            color: #555;
         }
-
-        .footer-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .footer-stat {
-            text-align: center;
-        }
-
-        .footer-stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary-orange);
-            display: block;
-        }
-
-        .footer-stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Responsive */
+        
         @media (max-width: 768px) {
-            .header h1 { font-size: 2rem; }
-            .stats-bar { flex-direction: column; gap: 10px; }
-            .promo-table { font-size: 0.8rem; }
-            .promo-table th, .promo-table td { padding: 10px 8px; }
-            .product-name { max-width: 200px; }
-            .footer-stats { flex-direction: column; gap: 20px; }
-        }
-
-        /* Animaciones */
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes pulse-warning {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); }
-            50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(255, 193, 7, 0); }
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Efectos hover para filas */
-        .promo-table tbody tr:nth-child(odd) {
-            background: #f8f9fa;
-        }
-
-        .promo-table tbody tr:hover .discount-badge {
-            transform: scale(1.1);
-        }
-
-        .promo-table tbody tr:hover .price-now {
-            color: #2ecc71;
-            transform: scale(1.05);
+            .header h1 { font-size: 2em; }
+            th, td { padding: 8px 6px; font-size: 0.8em; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header Promocional -->
-        <header class="header">
-            <div class="header-content">
-                <h1>🔥 OFERTAS ESPECIALES</h1>
-                <p>💰 ¡Los mejores precios en medicamentos de calidad!</p>
-            </div>
-        </header>
-
-        <!-- Stats Bar -->
-        <div class="stats-bar">
-            <div class="stat-item">
-                <span class="stat-number">22</span>
-                <span class="stat-label">Productos en Oferta</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">67%</span>
-                <span class="stat-label">Descuento Máximo</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">$218,240</span>
-                <span class="stat-label">Ahorro Total</span>
-            </div>
+        <div class="header">
+            <h1>🎯 PRODUCTOS EN OFERTA</h1>
+            <p>Laboratorios Chalver de Colombia - Ofertas Especiales</p>
         </div>
-
-        <!-- Tabla Promocional -->
+        
         <div class="table-container">
-            <table class="promo-table">
+            <table>
                 <thead>
                     <tr>
-                        <th>🏥 PRODUCTO</th>
-                        <th>💰 PRECIO</th>
-                        <th>🏷️ DESCUENTO</th>
-                        <th>💵 TE AHORRAS</th>
-                        <th>📦 DISPONIBILIDAD</th>
+                        <th>Producto</th>
+                        <th>Presentación</th>
+                        <th>Precio Original</th>
+                        <th>Precio Final</th>
+                        <th>Te Ahorras</th>
+                        <th>% Descuento</th>
+                        <th>Disponibilidad</th>
+                        <th>Stock</th>
                     </tr>
                 </thead>
                 <tbody>
-
                     <tr>
-                        <td>
-                            <div class="product-name">AIRMAX INH. 100 MC 200 DOSIS SALBUTAM</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$27,931</span>
-                            <span class="price-now">$9,310</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-high">67% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$18,621</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-alto">
-                                <span>✅</span>
-                                <span>Disponible (499)</span>
-                            </span>
-                        </td>
+                        <td class="producto">AIRMAX INHALADOR SALBUTAMOL</td>
+                        <td><span class="presentacion">UNIDAD</span></td>
+                        <td class="precio-original">$27,931</td>
+                        <td class="precio-final">$9,310</td>
+                        <td><span class="ahorro">$18,621</span></td>
+                        <td><span class="descuento">66.67%</span></td>
+                        <td><span class="disponible">DISPONIBLE</span></td>
+                        <td>518 und</td>
                     </tr>
-    
                     <tr>
-                        <td>
-                            <div class="product-name">MULTIDOL EXPRESS 400 MG 48 CBG</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$61,514</span>
-                            <span class="price-now">$36,089</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-high">41% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$25,425</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-alto">
-                                <span>✅</span>
-                                <span>Disponible (119)</span>
-                            </span>
-                        </td>
+                        <td class="producto">MULTIDOL EXPRESS 400 MG</td>
+                        <td><span class="presentacion">CAJA 48 CBG</span></td>
+                        <td class="precio-original">$61,514</td>
+                        <td class="precio-final">$36,089</td>
+                        <td><span class="ahorro">$25,425</span></td>
+                        <td><span class="descuento">41.33%</span></td>
+                        <td><span class="disponible">DISPONIBLE</span></td>
+                        <td>111 und</td>
                     </tr>
-    
                     <tr>
-                        <td>
-                            <div class="product-name">NEUROPRON 10.000 SOL.INY.2 ML 3 UND</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$106,736</span>
-                            <span class="price-now">$72,580</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-high">32% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$34,156</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-medio">
-                                <span>⚠️</span>
-                                <span>Stock Medio (75)</span>
-                            </span>
-                        </td>
+                        <td class="producto">NEUROPRON 10.000 SOL.INY.</td>
+                        <td><span class="presentacion">CAJA 3 UND</span></td>
+                        <td class="precio-original">$106,736</td>
+                        <td class="precio-final">$72,580</td>
+                        <td><span class="ahorro">$34,156</span></td>
+                        <td><span class="descuento">32.0%</span></td>
+                        <td><span class="disponible">DISPONIBLE</span></td>
+                        <td>75 und</td>
                     </tr>
-    
                     <tr>
-                        <td>
-                            <div class="product-name">INFLACOR RETARD 6+6 MG 2 ML AMPOLLA</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$62,401</span>
-                            <span class="price-now">$47,068</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-medium">25% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$15,333</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-alto">
-                                <span>✅</span>
-                                <span>Disponible (194)</span>
-                            </span>
-                        </td>
+                        <td class="producto">INFLACOR RETARD 3+3 MG</td>
+                        <td><span class="presentacion">AMPOLLA</span></td>
+                        <td class="precio-original">$41,564</td>
+                        <td class="precio-final">$31,351</td>
+                        <td><span class="ahorro">$10,213</span></td>
+                        <td><span class="descuento">24.57%</span></td>
+                        <td><span class="disponible">DISPONIBLE</span></td>
+                        <td>287 und</td>
                     </tr>
-    
                     <tr>
-                        <td>
-                            <div class="product-name">INFLACOR RETARD 3+3 MG 1 ML AMPOLLA</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$41,564</span>
-                            <span class="price-now">$31,351</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-medium">25% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$10,213</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-alto">
-                                <span>✅</span>
-                                <span>Disponible (274)</span>
-                            </span>
-                        </td>
+                        <td class="producto">INFLACOR RETARD 6+6 MG</td>
+                        <td><span class="presentacion">AMPOLLA</span></td>
+                        <td class="precio-original">$62,401</td>
+                        <td class="precio-final">$47,068</td>
+                        <td><span class="ahorro">$15,333</span></td>
+                        <td><span class="descuento">24.57%</span></td>
+                        <td><span class="disponible">DISPONIBLE</span></td>
+                        <td>272 und</td>
                     </tr>
-    
                     <tr>
-                        <td>
-                            <div class="product-name">TRIGENTAX CREMA 40 GR</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$42,371</span>
-                            <span class="price-now">$34,801</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">18% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$7,570</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-medio">
-                                <span>⚠️</span>
-                                <span>Stock Medio (71)</span>
-                            </span>
-                        </td>
+                        <td class="producto">TRIGENTAX CREMA 40 GR</td>
+                        <td><span class="presentacion">TUBO</span></td>
+                        <td class="precio-original">$42,371</td>
+                        <td class="precio-final">$34,801</td>
+                        <td><span class="ahorro">$7,570</span></td>
+                        <td><span class="descuento">17.87%</span></td>
+                        <td><span class="disponible">DISPONIBLE</span></td>
+                        <td>75 und</td>
                     </tr>
-    
                     <tr>
-                        <td>
-                            <div class="product-name">TRIGENTAX CREMA 20 GR</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$27,456</span>
-                            <span class="price-now">$22,550</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">18% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$4,906</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-alto">
-                                <span>✅</span>
-                                <span>Disponible (450)</span>
-                            </span>
-                        </td>
+                        <td class="producto">TRIGENTAX CREMA 20 GR</td>
+                        <td><span class="presentacion">TUBO</span></td>
+                        <td class="precio-original">$27,456</td>
+                        <td class="precio-final">$22,550</td>
+                        <td><span class="ahorro">$4,906</span></td>
+                        <td><span class="descuento">17.87%</span></td>
+                        <td><span class="disponible">DISPONIBLE</span></td>
+                        <td>453 und</td>
                     </tr>
-    
                     <tr>
-                        <td>
-                            <div class="product-name">INFLABON INHALADOR 50 MCG 200 DOSIS</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$121,034</span>
-                            <span class="price-now">$102,879</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">15% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$18,155</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-bajo">
-                                <span>🔥</span>
-                                <span>¡Últimas 31!</span>
-                            </span>
-                        </td>
+                        <td class="producto">LACTULAX JARABE 240 ML</td>
+                        <td><span class="presentacion">FRASCO</span></td>
+                        <td class="precio-original">$102,191</td>
+                        <td class="precio-final">$86,862</td>
+                        <td><span class="ahorro">$15,329</span></td>
+                        <td><span class="descuento">15.0%</span></td>
+                        <td><span class="disponible">DISPONIBLE</span></td>
+                        <td>26 und</td>
                     </tr>
-    
                     <tr>
-                        <td>
-                            <div class="product-name">VAGINSOL F 200100 MG OVULOS 3 UNDS</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$94,322</span>
-                            <span class="price-now">$80,174</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">15% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$14,148</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-bajo">
-                                <span>🔥</span>
-                                <span>¡Últimas 41!</span>
-                            </span>
-                        </td>
+                        <td class="producto">INFLABON INHALADOR 50 MCG</td>
+                        <td><span class="presentacion">UNIDAD</span></td>
+                        <td class="precio-original">$121,034</td>
+                        <td class="precio-final">$102,879</td>
+                        <td><span class="ahorro">$18,155</span></td>
+                        <td><span class="descuento">15.0%</span></td>
+                        <td><span class="disponible">DISPONIBLE</span></td>
+                        <td>31 und</td>
                     </tr>
-    
                     <tr>
-                        <td>
-                            <div class="product-name">SIMPAUSE 100 MG 30 CAPSULA BLANDA</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$100,972</span>
-                            <span class="price-now">$85,826</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">15% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$15,146</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-medio">
-                                <span>⚠️</span>
-                                <span>Stock Medio (85)</span>
-                            </span>
-                        </td>
+                        <td class="producto">DESLORAN 5 MG 10 TABLETAS</td>
+                        <td><span class="presentacion">CAJA</span></td>
+                        <td class="precio-original">$76,477</td>
+                        <td class="precio-final">$67,300</td>
+                        <td><span class="ahorro">$9,177</span></td>
+                        <td><span class="descuento">12.0%</span></td>
+                        <td><span class="disponible">DISPONIBLE</span></td>
+                        <td>47 und</td>
                     </tr>
-    
                     <tr>
-                        <td>
-                            <div class="product-name">CLOBEZAN LOCION 60 ML</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$66,443</span>
-                            <span class="price-now">$58,549</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">12% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$7,894</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-alto">
-                                <span>✅</span>
-                                <span>Disponible (119)</span>
-                            </span>
-                        </td>
+                        <td class="producto">INFLABON INHALADOR 200 MCG</td>
+                        <td><span class="presentacion">UNIDAD</span></td>
+                        <td class="precio-original">$142,425</td>
+                        <td class="precio-final">$125,334</td>
+                        <td><span class="ahorro">$17,091</span></td>
+                        <td><span class="descuento">12.0%</span></td>
+                        <td><span class="disponible">DISPONIBLE</span></td>
+                        <td>30 und</td>
                     </tr>
-    
                     <tr>
-                        <td>
-                            <div class="product-name">CUTAMYCON CREMA 20 GR</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$15,507</span>
-                            <span class="price-now">$13,646</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">12% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$1,861</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-alto">
-                                <span>✅</span>
-                                <span>Disponible (138)</span>
-                            </span>
-                        </td>
+                        <td class="producto">BUSTEROL INHALADOR 200 DOSIS</td>
+                        <td><span class="presentacion">UNIDAD</span></td>
+                        <td class="precio-original">$159,383</td>
+                        <td class="precio-final">$140,257</td>
+                        <td><span class="ahorro">$19,126</span></td>
+                        <td><span class="descuento">12.0%</span></td>
+                        <td><span class="stock-bajo">STOCK BAJO</span></td>
+                        <td>5 und</td>
                     </tr>
-    
-                    <tr>
-                        <td>
-                            <div class="product-name">DESCONGEL GRIPA 100 CAPSULAS</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$117,010</span>
-                            <span class="price-now">$103,009</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">12% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$14,001</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-alto">
-                                <span>✅</span>
-                                <span>Disponible (345)</span>
-                            </span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <div class="product-name">DESCONGELITO F GRIPA GOTAS 15 ML</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$18,687</span>
-                            <span class="price-now">$16,444</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">12% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$2,243</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-alto">
-                                <span>✅</span>
-                                <span>Disponible (118)</span>
-                            </span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <div class="product-name">DUOPAS 400/20 MG 10 CAPSULAS</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$45,329</span>
-                            <span class="price-now">$39,890</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">12% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$5,439</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-alto">
-                                <span>✅</span>
-                                <span>Disponible (116)</span>
-                            </span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <div class="product-name">ESTERMAX 0.625 MG 28 TABLETAS</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$28,133</span>
-                            <span class="price-now">$24,757</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">12% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$3,376</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-alto">
-                                <span>✅</span>
-                                <span>Disponible (103)</span>
-                            </span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <div class="product-name">ESTERMAX CREMA VAGINAL 40 GR</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$30,547</span>
-                            <span class="price-now">$26,881</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">12% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$3,666</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-bajo">
-                                <span>🔥</span>
-                                <span>¡Últimas 32!</span>
-                            </span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <div class="product-name">FEMTRIOL CREMA VAGINAL 20 GR</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$25,498</span>
-                            <span class="price-now">$22,438</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">12% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$3,060</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-medio">
-                                <span>⚠️</span>
-                                <span>Stock Medio (72)</span>
-                            </span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <div class="product-name">FLUZETRIN F JARABE 60 ML</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$34,832</span>
-                            <span class="price-now">$30,652</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">12% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$4,180</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-medio">
-                                <span>⚠️</span>
-                                <span>Stock Medio (51)</span>
-                            </span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <div class="product-name">FLUZETRIN F 10 TABLETAS</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$31,969</span>
-                            <span class="price-now">$28,132</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">12% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$3,837</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-medio">
-                                <span>⚠️</span>
-                                <span>Stock Medio (88)</span>
-                            </span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <div class="product-name">FRIOTAN HEDERA HELIX 65 MG 10 CAP</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$34,474</span>
-                            <span class="price-now">$30,337</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">12% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$4,137</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-bajo">
-                                <span>🔥</span>
-                                <span>¡Últimas 21!</span>
-                            </span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <div class="product-name">ZAKOR MEBENDAZOL 100 MG 6 TABL</div>
-                        </td>
-                        <td class="price-cell">
-                            <span class="price-before">$7,276</span>
-                            <span class="price-now">$6,403</span>
-                        </td>
-                        <td style="text-align: center;">
-                            <span class="discount-badge discount-low">12% OFF</span>
-                        </td>
-                        <td class="savings-cell">
-                            <div class="savings-highlight">$873</div>
-                        </td>
-                        <td class="stock-cell">
-                            <span class="stock-badge stock-alto">
-                                <span>✅</span>
-                                <span>Disponible (198)</span>
-                            </span>
-                        </td>
-                    </tr>
-    
                 </tbody>
             </table>
         </div>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <h3>🎯 ¡Aprovecha Estas Ofertas Limitadas!</h3>
-            <div class="footer-stats">
-                <div class="footer-stat">
-                    <span class="footer-stat-number">3</span>
-                    <span class="footer-stat-label">Super Ofertas +30%</span>
-                </div>
-                <div class="footer-stat">
-                    <span class="footer-stat-number">4</span>
-                    <span class="footer-stat-label">Stock Limitado</span>
-                </div>
-                <div class="footer-stat">
-                    <span class="footer-stat-number">$9,920</span>
-                    <span class="footer-stat-label">Ahorro Promedio</span>
-                </div>
-            </div>
-        </footer>
     </div>
 </body>
 </html>
