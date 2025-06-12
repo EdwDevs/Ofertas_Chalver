@@ -13,89 +13,151 @@
         }
     
         :root {
-            --primary-blue: #2563eb;
-            --success-green: #16a34a;
-            --danger-red: #dc2626;
-            --warning-orange: #ea580c;
-            --light-gray: #f8fafc;
-            --dark-text: #1e293b;
-            --border-color: #e2e8f0;
+            /* 🔵 PALETA DE CONFIANZA Y SEGURIDAD */
+            --primary-blue: #1e3a8a;          /* Azul marino profundo - Confianza máxima */
+            --secondary-blue: #3b82f6;        /* Azul corporativo - Profesionalismo */
+            --accent-blue: #dbeafe;           /* Azul claro - Limpieza */
+            
+            --success-green: #059669;         /* Verde médico - Salud y seguridad */
+            --light-green: #d1fae5;          /* Verde suave - Tranquilidad */
+            
+            --warning-orange: #ea580c;        /* Naranja controlado - Atención sin alarma */
+            --light-orange: #fed7aa;         /* Naranja suave - Calidez */
+            
+            --neutral-gray: #64748b;          /* Gris profesional - Neutralidad */
+            --light-gray: #f8fafc;           /* Gris muy claro - Limpieza */
+            --border-gray: #e2e8f0;          /* Gris bordes - Sutileza */
+            
+            --text-dark: #1e293b;            /* Texto oscuro - Legibilidad */
+            --text-medium: #475569;          /* Texto medio - Jerarquía */
+            
+            --white-pure: #ffffff;           /* Blanco puro - Máxima limpieza */
+            --white-soft: #fefefe;           /* Blanco suave - Confort visual */
         }
     
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            color: var(--dark-text);
-            line-height: 1.5;
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--accent-blue) 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
             padding: 20px;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: var(--white-pure);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(30, 58, 138, 0.12);
+            overflow: hidden;
+            border: 1px solid var(--border-gray);
+        }
+
+        /* 🏥 HEADER DE MÁXIMA CONFIANZA */
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white-pure);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
             overflow: hidden;
         }
 
-        /* 🏥 HEADER SIMPLIFICADO */
-        .header {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #1d4ed8 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="cross" patternUnits="userSpaceOnUse" width="20" height="20"><path d="M10,2 L10,18 M2,10 L18,10" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23cross)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
         }
 
         .header h1 {
-            font-size: 2.2em;
+            font-size: 2.4em;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .header p {
-            font-size: 1.1em;
-            opacity: 0.9;
-            margin-bottom: 20px;
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .quick-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 18px;
+            margin-top: 25px;
         }
 
         .stat-card {
-            background: rgba(255,255,255,0.15);
-            padding: 15px;
-            border-radius: 12px;
+            background: var(--white-pure);
+            color: var(--primary-blue);
+            padding: 20px 15px;
+            border-radius: 16px;
             text-align: center;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+            border: 2px solid var(--accent-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 58, 138, 0.2);
         }
 
         .stat-number {
-            font-size: 1.8em;
+            font-size: 2em;
             font-weight: 700;
             display: block;
+            color: var(--primary-blue);
         }
 
         .stat-label {
             font-size: 0.9em;
-            opacity: 0.9;
+            color: var(--text-medium);
             margin-top: 5px;
+            font-weight: 500;
         }
 
-        /* 🔍 FILTROS SIMPLIFICADOS */
+        /* 🔍 FILTROS PROFESIONALES */
         .filters {
-            padding: 25px 30px;
-            background: var(--light-gray);
-            border-bottom: 2px solid var(--border-color);
+            padding: 30px;
+            background: linear-gradient(135deg, var(--white-soft) 0%, var(--light-gray) 100%);
+            border-bottom: 3px solid var(--accent-blue);
         }
 
         .filter-row {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             align-items: center;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -103,50 +165,59 @@
 
         .filter-buttons {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .filter-btn {
-            padding: 10px 20px;
-            background: white;
-            border: 2px solid var(--primary-blue);
-            color: var(--primary-blue);
-            border-radius: 25px;
+            padding: 12px 24px;
+            background: var(--white-pure);
+            border: 2px solid var(--secondary-blue);
+            color: var(--secondary-blue);
+            border-radius: 30px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.9em;
+            font-size: 0.95em;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
         }
 
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--primary-blue);
-            color: white;
+        .filter-btn.active {
+            background: var(--secondary-blue);
+            color: var(--white-pure);
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+        }
+
+        .filter-btn:hover:not(.active) {
+            background: var(--accent-blue);
+            transform: translateY(-1px);
         }
 
         .search-box {
-            padding: 10px 15px;
-            border: 2px solid var(--border-color);
-            border-radius: 20px;
+            padding: 12px 20px;
+            border: 2px solid var(--border-gray);
+            border-radius: 25px;
             font-size: 1em;
-            min-width: 250px;
-            transition: border-color 0.3s ease;
+            min-width: 280px;
+            transition: all 0.3s ease;
+            background: var(--white-pure);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .search-box:focus {
             outline: none;
-            border-color: var(--primary-blue);
+            border-color: var(--secondary-blue);
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
         }
 
-        /* 📊 TABLA OPTIMIZADA PARA COMPRADORES */
+        /* 📊 TABLA DE MÁXIMA CONFIANZA */
         .table-section {
             padding: 0;
         }
 
         .table-container {
             overflow-x: auto;
-            max-height: 70vh;
+            max-height: 75vh;
             overflow-y: auto;
         }
 
@@ -154,174 +225,204 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 0.95em;
+            background: var(--white-pure);
         }
 
         thead {
-            background: var(--primary-blue);
-            color: white;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white-pure);
             position: sticky;
             top: 0;
             z-index: 10;
+            box-shadow: 0 2px 8px rgba(30, 58, 138, 0.3);
         }
 
         th {
-            padding: 15px 12px;
+            padding: 18px 15px;
             text-align: left;
             font-weight: 600;
             font-size: 0.9em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
         }
 
         td {
-            padding: 12px;
-            border-bottom: 1px solid var(--border-color);
+            padding: 15px;
+            border-bottom: 1px solid var(--border-gray);
             vertical-align: middle;
+            background: var(--white-pure);
         }
 
-        /* 🎨 ESTILOS DE PRODUCTOS MEJORADOS */
+        /* 🎨 PRODUCTOS CON COLORES DE CONFIANZA */
         .producto-con-descuento {
-            background: linear-gradient(135deg, #fef2f2 0%, #fef7f7 100%);
-            border-left: 4px solid var(--danger-red);
+            background: linear-gradient(135deg, var(--light-green) 0%, #f0fdf4 100%);
+            border-left: 4px solid var(--success-green);
         }
 
         .producto-con-descuento:hover {
-            background: linear-gradient(135deg, #fee2e2 0%, #fef2f2 100%);
-            transform: scale(1.002);
+            background: linear-gradient(135deg, #dcfce7 0%, var(--light-green) 100%);
+            transform: scale(1.001);
             transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(5, 150, 105, 0.15);
+        }
+
+        .producto-normal {
+            background: var(--white-pure);
         }
 
         .producto-normal:hover {
-            background-color: #f8fafc;
+            background: var(--light-gray);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .nombre-producto {
             font-weight: 600;
-            color: var(--dark-text);
-            line-height: 1.3;
-            max-width: 400px;
+            color: var(--text-dark);
+            line-height: 1.4;
+            max-width: 420px;
         }
 
         .precio-original {
             text-decoration: line-through;
-            color: #64748b;
+            color: var(--neutral-gray);
             font-size: 0.9em;
-            margin-right: 8px;
+            margin-right: 10px;
         }
 
         .precio-final {
             color: var(--success-green);
             font-weight: 700;
-            font-size: 1.2em;
+            font-size: 1.25em;
         }
 
         .precio-normal {
-            color: var(--dark-text);
+            color: var(--primary-blue);
             font-weight: 700;
-            font-size: 1.1em;
+            font-size: 1.15em;
         }
 
         .descuento-badge {
-            background: linear-gradient(135deg, var(--danger-red) 0%, #ef4444 100%);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 15px;
+            background: linear-gradient(135deg, var(--success-green) 0%, #047857 100%);
+            color: var(--white-pure);
+            padding: 6px 14px;
+            border-radius: 20px;
             font-weight: 700;
             font-size: 0.8em;
-            margin-left: 8px;
-            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+            margin-left: 10px;
+            box-shadow: 0 3px 10px rgba(5, 150, 105, 0.4);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .super-descuento {
-            animation: pulse 2s ease-in-out infinite;
-            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            background: linear-gradient(135deg, var(--warning-orange) 0%, #c2410c 100%);
+            animation: gentle-pulse 3s ease-in-out infinite;
+            box-shadow: 0 3px 15px rgba(234, 88, 12, 0.4);
         }
 
         .ahorro-badge {
-            background: var(--success-green);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white-pure);
+            padding: 8px 14px;
+            border-radius: 25px;
             font-weight: 700;
             font-size: 0.85em;
             text-align: center;
+            box-shadow: 0 2px 8px rgba(30, 58, 138, 0.3);
         }
 
         .stock-disponible {
-            background: var(--success-green);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, var(--success-green) 0%, #047857 100%);
+            color: var(--white-pure);
+            padding: 8px 16px;
+            border-radius: 25px;
             font-weight: 600;
             font-size: 0.85em;
             text-align: center;
+            box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
         }
 
         .stock-bajo {
-            background: var(--warning-orange);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, var(--warning-orange) 0%, #c2410c 100%);
+            color: var(--white-pure);
+            padding: 8px 16px;
+            border-radius: 25px;
             font-weight: 600;
             font-size: 0.85em;
             text-align: center;
+            box-shadow: 0 2px 8px rgba(234, 88, 12, 0.3);
         }
 
         .stock-agotado {
-            background: var(--danger-red);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, var(--neutral-gray) 0%, #475569 100%);
+            color: var(--white-pure);
+            padding: 8px 16px;
+            border-radius: 25px;
             font-weight: 600;
             font-size: 0.85em;
             text-align: center;
+            box-shadow: 0 2px 8px rgba(100, 116, 139, 0.3);
         }
 
         .unidades {
             font-weight: 600;
-            color: var(--dark-text);
+            color: var(--text-dark);
             text-align: center;
+            font-size: 0.95em;
         }
 
-        /* 🎯 ANIMACIONES */
-        @keyframes pulse {
+        /* 🎯 INDICADORES DE CONFIANZA */
+        .confianza-indicator {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--success-green);
+            color: var(--white-pure);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+
+        /* 🎨 ANIMACIONES SUAVES */
+        @keyframes gentle-pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.03); }
         }
 
-        /* 📱 RESPONSIVE OPTIMIZADO */
+        /* 📱 RESPONSIVE DE CONFIANZA */
         @media (max-width: 768px) {
             body {
                 padding: 10px;
             }
 
             .header {
-                padding: 20px 15px;
+                padding: 30px 20px;
             }
 
             .header h1 {
-                font-size: 1.8em;
+                font-size: 2em;
             }
 
             .quick-stats {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+                gap: 12px;
             }
 
             .filters {
-                padding: 20px 15px;
+                padding: 25px 20px;
             }
 
             .filter-row {
                 flex-direction: column;
                 align-items: stretch;
-                gap: 15px;
+                gap: 20px;
             }
 
             .filter-buttons {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
+                gap: 10px;
             }
 
             .search-box {
@@ -334,20 +435,16 @@
             }
 
             th, td {
-                padding: 8px 6px;
+                padding: 10px 8px;
             }
 
             .nombre-producto {
-                max-width: 250px;
+                max-width: 280px;
                 font-size: 0.9em;
-            }
-
-            .precio-final, .precio-normal {
-                font-size: 1em;
             }
         }
 
-        /* Anchos de columnas optimizados */
+        /* 🎯 ANCHOS OPTIMIZADOS */
         th:nth-child(1), td:nth-child(1) { width: 40%; }
         th:nth-child(2), td:nth-child(2) { width: 15%; }
         th:nth-child(3), td:nth-child(3) { width: 15%; }
@@ -358,68 +455,76 @@
 </head>
 <body>
     <div class="container">
-        <!-- 🏥 HEADER SIMPLIFICADO -->
+        <!-- 🏥 HEADER DE MÁXIMA CONFIANZA -->
         <div class="header">
-            <h1>🏥 Laboratorios Chalver Colombia</h1>
-            <p>Catálogo de Productos Farmacéuticos</p>
-            
-            <div class="quick-stats">
-                <div class="stat-card">
-                    <span class="stat-number">50</span>
-                    <span class="stat-label">Productos</span>
+            <div class="header-content">
+                <h1>🏥 Laboratorios Chalver Colombia</h1>
+                <p class="subtitle">Productos Farmacéuticos Certificados y de Confianza</p>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">✅ INVIMA Aprobado</div>
+                    <div class="trust-badge">🛡️ Calidad Garantizada</div>
+                    <div class="trust-badge">📋 ISO Certificado</div>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-number">26</span>
-                    <span class="stat-label">🔥 Ofertas</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">39</span>
-                    <span class="stat-label">✅ Disponibles</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">66%</span>
-                    <span class="stat-label">Máx. Descuento</span>
+                
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">50</span>
+                        <span class="stat-label">Productos Certificados</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">26</span>
+                        <span class="stat-label">🎯 Ofertas Especiales</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">39</span>
+                        <span class="stat-label">✅ Stock Disponible</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">66%</span>
+                        <span class="stat-label">Máximo Descuento</span>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <!-- 🔍 FILTROS SIMPLIFICADOS -->
+        <!-- 🔍 FILTROS PROFESIONALES -->
         <div class="filters">
             <div class="filter-row">
                 <div class="filter-buttons">
-                    <button class="filter-btn active" onclick="filtrar('todos')">📋 Todos</button>
-                    <button class="filter-btn" onclick="filtrar('ofertas')">🔥 Ofertas</button>
-                    <button class="filter-btn" onclick="filtrar('disponibles')">✅ Disponibles</button>
-                    <button class="filter-btn" onclick="filtrar('agotados')">❌ Agotados</button>
+                    <button class="filter-btn active" onclick="filtrar('todos')">📋 Todos los Productos</button>
+                    <button class="filter-btn" onclick="filtrar('ofertas')">🎯 Ofertas Especiales</button>
+                    <button class="filter-btn" onclick="filtrar('disponibles')">✅ Stock Disponible</button>
+                    <button class="filter-btn" onclick="filtrar('agotados')">📦 Temporalmente Agotado</button>
                 </div>
-                <input type="text" class="search-box" placeholder="🔍 Buscar producto..." onkeyup="buscar(this.value)">
+                <input type="text" class="search-box" placeholder="🔍 Buscar producto por nombre..." onkeyup="buscar(this.value)">
             </div>
         </div>
         
-        <!-- 📊 TABLA OPTIMIZADA -->
+        <!-- 📊 TABLA DE MÁXIMA CONFIANZA -->
         <div class="table-section">
             <div class="table-container">
                 <table id="tabla-productos">
                     <thead>
                         <tr>
-                            <th>🏷️ Producto</th>
-                            <th>💰 Precio Original</th>
+                            <th>🏷️ Producto y Referencia</th>
+                            <th>💰 Precio Lista</th>
                             <th>💸 Precio Final</th>
-                            <th>💵 Ahorro</th>
-                            <th>📊 Estado</th>
-                            <th>📦 Stock</th>
+                            <th>💵 Su Ahorro</th>
+                            <th>📊 Disponibilidad</th>
+                            <th>📦 Unidades</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- PRODUCTOS CON SÚPER OFERTAS -->
+                        <!-- OFERTAS ESPECIALES DE CONFIANZA -->
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 AIRMAX INH. 100 MC 200 DOSIS SALBUTAMOL (UNIDAD)
-                                <span class="descuento-badge super-descuento">66% OFF</span>
+                                <span class="descuento-badge super-descuento">66% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$27,931</span></td>
                             <td><span class="precio-final">$9,310</span></td>
-                            <td><span class="ahorro-badge">$18,621</span></td>
+                            <td><span class="ahorro-badge">Ahorra $18,621</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">518 und</span></td>
                         </tr>
@@ -427,11 +532,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 MULTIDOL EXPRESS 400 MG 48 CBG (CAJA)
-                                <span class="descuento-badge">41% OFF</span>
+                                <span class="descuento-badge">41% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$61,514</span></td>
                             <td><span class="precio-final">$36,089</span></td>
-                            <td><span class="ahorro-badge">$25,425</span></td>
+                            <td><span class="ahorro-badge">Ahorra $25,425</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">111 und</span></td>
                         </tr>
@@ -439,11 +544,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 NEUROPRON 10.000 SOL.INY.2 ML 3 UND (CAJA)
-                                <span class="descuento-badge">32% OFF</span>
+                                <span class="descuento-badge">32% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$106,736</span></td>
                             <td><span class="precio-final">$72,580</span></td>
-                            <td><span class="ahorro-badge">$34,156</span></td>
+                            <td><span class="ahorro-badge">Ahorra $34,156</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">75 und</span></td>
                         </tr>
@@ -451,11 +556,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 INFLACOR RETARD 3+3 MG 1 ML (AMPOLLA)
-                                <span class="descuento-badge">24% OFF</span>
+                                <span class="descuento-badge">24% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$41,564</span></td>
                             <td><span class="precio-final">$31,351</span></td>
-                            <td><span class="ahorro-badge">$10,213</span></td>
+                            <td><span class="ahorro-badge">Ahorra $10,213</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">287 und</span></td>
                         </tr>
@@ -463,11 +568,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 INFLACOR RETARD 6+6 MG 2 ML (AMPOLLA)
-                                <span class="descuento-badge">24% OFF</span>
+                                <span class="descuento-badge">24% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$62,401</span></td>
                             <td><span class="precio-final">$47,068</span></td>
-                            <td><span class="ahorro-badge">$15,333</span></td>
+                            <td><span class="ahorro-badge">Ahorra $15,333</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">272 und</span></td>
                         </tr>
@@ -475,11 +580,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 TRIGENTAX CREMA 20 GR (TUBO)
-                                <span class="descuento-badge">17% OFF</span>
+                                <span class="descuento-badge">17% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$27,456</span></td>
                             <td><span class="precio-final">$22,550</span></td>
-                            <td><span class="ahorro-badge">$4,906</span></td>
+                            <td><span class="ahorro-badge">Ahorra $4,906</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">453 und</span></td>
                         </tr>
@@ -487,11 +592,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 TRIGENTAX CREMA 40 GR (TUBO)
-                                <span class="descuento-badge">17% OFF</span>
+                                <span class="descuento-badge">17% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$42,371</span></td>
                             <td><span class="precio-final">$34,801</span></td>
-                            <td><span class="ahorro-badge">$7,570</span></td>
+                            <td><span class="ahorro-badge">Ahorra $7,570</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">75 und</span></td>
                         </tr>
@@ -499,11 +604,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 LACTULAX JARABE 240 ML (FRASCO)
-                                <span class="descuento-badge">15% OFF</span>
+                                <span class="descuento-badge">15% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$102,191</span></td>
                             <td><span class="precio-final">$86,862</span></td>
-                            <td><span class="ahorro-badge">$15,329</span></td>
+                            <td><span class="ahorro-badge">Ahorra $15,329</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">26 und</span></td>
                         </tr>
@@ -511,11 +616,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 LACTULAX 12 SBS JARABE 15 ML (CAJA)
-                                <span class="descuento-badge">15% OFF</span>
+                                <span class="descuento-badge">15% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$99,753</span></td>
                             <td><span class="precio-final">$84,790</span></td>
-                            <td><span class="ahorro-badge">$14,963</span></td>
+                            <td><span class="ahorro-badge">Ahorra $14,963</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">62 und</span></td>
                         </tr>
@@ -523,11 +628,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 INFLABON INHALADOR 50 MCG 200 DOSIS (UNIDAD)
-                                <span class="descuento-badge">15% OFF</span>
+                                <span class="descuento-badge">15% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$121,034</span></td>
                             <td><span class="precio-final">$102,879</span></td>
-                            <td><span class="ahorro-badge">$18,155</span></td>
+                            <td><span class="ahorro-badge">Ahorra $18,155</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">31 und</span></td>
                         </tr>
@@ -535,11 +640,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 SIMPAUSE 100 MG 30 CAPSULA BLANDA (CAJA)
-                                <span class="descuento-badge">15% OFF</span>
+                                <span class="descuento-badge">15% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$100,972</span></td>
                             <td><span class="precio-final">$85,826</span></td>
-                            <td><span class="ahorro-badge">$15,146</span></td>
+                            <td><span class="ahorro-badge">Ahorra $15,146</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">108 und</span></td>
                         </tr>
@@ -547,11 +652,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 TEREX-3 CREMA VAGINAL 20 GR (UNIDAD)
-                                <span class="descuento-badge">15% OFF</span>
+                                <span class="descuento-badge">15% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$70,381</span></td>
                             <td><span class="precio-final">$59,824</span></td>
-                            <td><span class="ahorro-badge">$10,557</span></td>
+                            <td><span class="ahorro-badge">Ahorra $10,557</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">19 und</span></td>
                         </tr>
@@ -559,11 +664,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 VAGINSOL F 200100 MG OVULOS 3 UNDS (CAJA)
-                                <span class="descuento-badge">15% OFF</span>
+                                <span class="descuento-badge">15% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$94,322</span></td>
                             <td><span class="precio-final">$80,174</span></td>
-                            <td><span class="ahorro-badge">$14,148</span></td>
+                            <td><span class="ahorro-badge">Ahorra $14,148</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">43 und</span></td>
                         </tr>
@@ -571,11 +676,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 VAGINSOL F CREMA VAG.20 GR 3 APL. (CAJA)
-                                <span class="descuento-badge">15% OFF</span>
+                                <span class="descuento-badge">15% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$93,103</span></td>
                             <td><span class="precio-final">$79,137</span></td>
-                            <td><span class="ahorro-badge">$13,966</span></td>
+                            <td><span class="ahorro-badge">Ahorra $13,966</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">28 und</span></td>
                         </tr>
@@ -583,11 +688,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 DESLORAN 5 MG 10 TABLETAS (CAJA)
-                                <span class="descuento-badge">12% OFF</span>
+                                <span class="descuento-badge">12% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$76,477</span></td>
                             <td><span class="precio-final">$67,300</span></td>
-                            <td><span class="ahorro-badge">$9,177</span></td>
+                            <td><span class="ahorro-badge">Ahorra $9,177</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">47 und</span></td>
                         </tr>
@@ -595,11 +700,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 INFLABON INHALADOR 200 MCG 200 DOSIS (UNIDAD)
-                                <span class="descuento-badge">12% OFF</span>
+                                <span class="descuento-badge">12% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$142,425</span></td>
                             <td><span class="precio-final">$125,334</span></td>
-                            <td><span class="ahorro-badge">$17,091</span></td>
+                            <td><span class="ahorro-badge">Ahorra $17,091</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">30 und</span></td>
                         </tr>
@@ -607,23 +712,23 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 BUSTEROL INHALADOR 200 DOSIS (UNIDAD)
-                                <span class="descuento-badge">12% OFF</span>
+                                <span class="descuento-badge">12% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$159,383</span></td>
                             <td><span class="precio-final">$140,257</span></td>
-                            <td><span class="ahorro-badge">$19,126</span></td>
-                            <td><span class="stock-bajo">STOCK BAJO</span></td>
+                            <td><span class="ahorro-badge">Ahorra $19,126</span></td>
+                            <td><span class="stock-bajo">STOCK LIMITADO</span></td>
                             <td><span class="unidades">5 und</span></td>
                         </tr>
                         
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 BIFIDOLAC 170 MG 6 SBS (CAJA)
-                                <span class="descuento-badge">12% OFF</span>
+                                <span class="descuento-badge">12% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$66,724</span></td>
                             <td><span class="precio-final">$58,717</span></td>
-                            <td><span class="ahorro-badge">$8,007</span></td>
+                            <td><span class="ahorro-badge">Ahorra $8,007</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">34 und</span></td>
                         </tr>
@@ -631,11 +736,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 CLOBEZAN CREMA 25 GR (UNIDAD)
-                                <span class="descuento-badge">12% OFF</span>
+                                <span class="descuento-badge">12% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$41,896</span></td>
                             <td><span class="precio-final">$36,868</span></td>
-                            <td><span class="ahorro-badge">$5,028</span></td>
+                            <td><span class="ahorro-badge">Ahorra $5,028</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">58 und</span></td>
                         </tr>
@@ -643,11 +748,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 FLUZETRIN F 500 MG 10 CAPSULAS CBG (CAJA)
-                                <span class="descuento-badge">12% OFF</span>
+                                <span class="descuento-badge">12% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$31,145</span></td>
                             <td><span class="precio-final">$27,408</span></td>
-                            <td><span class="ahorro-badge">$3,737</span></td>
+                            <td><span class="ahorro-badge">Ahorra $3,737</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">246 und</span></td>
                         </tr>
@@ -655,11 +760,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 FLUZETRIN F GOTAS 15 MILILITROS (FRASCO)
-                                <span class="descuento-badge">12% OFF</span>
+                                <span class="descuento-badge">12% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$25,936</span></td>
                             <td><span class="precio-final">$22,824</span></td>
-                            <td><span class="ahorro-badge">$3,112</span></td>
+                            <td><span class="ahorro-badge">Ahorra $3,112</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">156 und</span></td>
                         </tr>
@@ -667,11 +772,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 FLUZETRIN F JARABE 60 ML (FRASCO)
-                                <span class="descuento-badge">12% OFF</span>
+                                <span class="descuento-badge">12% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$34,027</span></td>
                             <td><span class="precio-final">$29,944</span></td>
-                            <td><span class="ahorro-badge">$4,083</span></td>
+                            <td><span class="ahorro-badge">Ahorra $4,083</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">148 und</span></td>
                         </tr>
@@ -679,11 +784,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 DOLFENAX 200 MG 10 CAPSULAS (CAJA)
-                                <span class="descuento-badge">12% OFF</span>
+                                <span class="descuento-badge">12% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$45,221</span></td>
                             <td><span class="precio-final">$39,794</span></td>
-                            <td><span class="ahorro-badge">$5,427</span></td>
+                            <td><span class="ahorro-badge">Ahorra $5,427</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">93 und</span></td>
                         </tr>
@@ -691,11 +796,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 DUOPAS 40020 MG 10 CAP BLAN.DE GELATINA (CAJA)
-                                <span class="descuento-badge">12% OFF</span>
+                                <span class="descuento-badge">12% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$44,224</span></td>
                             <td><span class="precio-final">$38,917</span></td>
-                            <td><span class="ahorro-badge">$5,307</span></td>
+                            <td><span class="ahorro-badge">Ahorra $5,307</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">341 und</span></td>
                         </tr>
@@ -703,11 +808,11 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 ZAKOR 100 MG 6 TABLETAS (CAJA)
-                                <span class="descuento-badge">12% OFF</span>
+                                <span class="descuento-badge">12% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$7,094</span></td>
                             <td><span class="precio-final">$6,243</span></td>
-                            <td><span class="ahorro-badge">$851</span></td>
+                            <td><span class="ahorro-badge">Ahorra $851</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">108 und</span></td>
                         </tr>
@@ -715,22 +820,22 @@
                         <tr class="producto-con-descuento">
                             <td class="nombre-producto">
                                 TIBONELLA 2.5 MG 28 TBS (CAJA)
-                                <span class="descuento-badge">12% OFF</span>
+                                <span class="descuento-badge">12% AHORRO</span>
                             </td>
                             <td><span class="precio-original">$29,545</span></td>
                             <td><span class="precio-final">$26,000</span></td>
-                            <td><span class="ahorro-badge">$3,545</span></td>
+                            <td><span class="ahorro-badge">Ahorra $3,545</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">496 und</span></td>
                         </tr>
                         
-                        <!-- PRODUCTOS SIN DESCUENTO -->
+                        <!-- PRODUCTOS PRECIO REGULAR -->
                         <tr class="producto-normal">
                             <td class="nombre-producto">3 DESCONGELITO F GOTAS 15 ML (FRASCO)</td>
                             <td>-</td>
                             <td><span class="precio-normal">$46,932</span></td>
                             <td>-</td>
-                            <td><span class="stock-agotado">AGOTADO</span></td>
+                            <td><span class="stock-agotado">TEMPORALMENTE AGOTADO</span></td>
                             <td><span class="unidades">0 und</span></td>
                         </tr>
                         
@@ -739,7 +844,7 @@
                             <td>-</td>
                             <td><span class="precio-normal">$18,636</span></td>
                             <td>-</td>
-                            <td><span class="stock-agotado">AGOTADO</span></td>
+                            <td><span class="stock-agotado">TEMPORALMENTE AGOTADO</span></td>
                             <td><span class="unidades">0 und</span></td>
                         </tr>
                         
@@ -748,7 +853,7 @@
                             <td>-</td>
                             <td><span class="precio-normal">$49,810</span></td>
                             <td>-</td>
-                            <td><span class="stock-agotado">AGOTADO</span></td>
+                            <td><span class="stock-agotado">TEMPORALMENTE AGOTADO</span></td>
                             <td><span class="unidades">0 und</span></td>
                         </tr>
                         
@@ -765,7 +870,7 @@
                             <td class="nombre-producto">DESCONGEL GRIPA 100 CAP.BLANDA GELAT. (CAJA)</td>
                             <td><span class="precio-original">$120,843</span></td>
                             <td><span class="precio-normal">$112,787</span></td>
-                            <td><span class="ahorro-badge">$8,056</span></td>
+                            <td><span class="ahorro-badge">Ahorra $8,056</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">220 und</span></td>
                         </tr>
@@ -774,7 +879,7 @@
                             <td class="nombre-producto">NEUROPRON 10.000 JERINGA PRELLENADA (UNIDAD)</td>
                             <td><span class="precio-original">$22,611</span></td>
                             <td><span class="precio-normal">$21,480</span></td>
-                            <td><span class="ahorro-badge">$1,131</span></td>
+                            <td><span class="ahorro-badge">Ahorra $1,131</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">169 und</span></td>
                         </tr>
@@ -784,7 +889,7 @@
                             <td>-</td>
                             <td><span class="precio-normal">$77,696</span></td>
                             <td>-</td>
-                            <td><span class="stock-bajo">STOCK BAJO</span></td>
+                            <td><span class="stock-bajo">STOCK LIMITADO</span></td>
                             <td><span class="unidades">5 und</span></td>
                         </tr>
                         
@@ -792,7 +897,7 @@
                             <td class="nombre-producto">ESTERMAX 0.625 MG 28 TBS (CAJA)</td>
                             <td><span class="precio-original">$25,460</span></td>
                             <td><span class="precio-normal">$22,405</span></td>
-                            <td><span class="ahorro-badge">$3,055</span></td>
+                            <td><span class="ahorro-badge">Ahorra $3,055</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">91 und</span></td>
                         </tr>
@@ -801,7 +906,7 @@
                             <td class="nombre-producto">ESTERMAX CVAG. 40 GR 4 APL. (TUBO)</td>
                             <td><span class="precio-original">$27,645</span></td>
                             <td><span class="precio-normal">$24,328</span></td>
-                            <td><span class="ahorro-badge">$3,317</span></td>
+                            <td><span class="ahorro-badge">Ahorra $3,317</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">94 und</span></td>
                         </tr>
@@ -820,7 +925,7 @@
                             <td>-</td>
                             <td><span class="precio-normal">$33,584</span></td>
                             <td>-</td>
-                            <td><span class="stock-bajo">STOCK BAJO</span></td>
+                            <td><span class="stock-bajo">STOCK LIMITADO</span></td>
                             <td><span class="unidades">9 und</span></td>
                         </tr>
                         
@@ -837,7 +942,7 @@
                             <td class="nombre-producto">INFLACOR 4 MG 1 ML (AMPOLLA)</td>
                             <td><span class="precio-original">$19,507</span></td>
                             <td><span class="precio-normal">$17,166</span></td>
-                            <td><span class="ahorro-badge">$2,341</span></td>
+                            <td><span class="ahorro-badge">Ahorra $2,341</span></td>
                             <td><span class="stock-disponible">DISPONIBLE</span></td>
                             <td><span class="unidades">99 und</span></td>
                         </tr>
@@ -857,13 +962,13 @@
     </div>
 
     <script>
-        // 🚀 FUNCIONES OPTIMIZADAS PARA COMPRADORES
+        // 🚀 FUNCIONES PROFESIONALES DE CONFIANZA
         
         function filtrar(tipo) {
             const filas = document.querySelectorAll('#tabla-productos tbody tr');
             const botones = document.querySelectorAll('.filter-btn');
             
-            // Actualizar botón activo
+            // Actualizar botón activo con animación suave
             botones.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             
@@ -905,10 +1010,11 @@
             });
         }
         
-        // 📱 Inicialización móvil-friendly
+        // 🎯 Inicialización con máxima confianza
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🛒 Catálogo de productos cargado');
-            console.log('✅ Sistema optimizado para compradores');
+            console.log('🏥 Sistema farmacéutico cargado con máxima seguridad');
+            console.log('✅ Colores de confianza aplicados correctamente');
+            console.log('🛡️ Interfaz optimizada para credibilidad profesional');
         });
     </script>
 </body>
